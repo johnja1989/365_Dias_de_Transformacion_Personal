@@ -2,8 +2,7 @@
 
 Un viaje diario de crecimiento personal diseñado para inspirar, motivar y transformar tu vida a través de reflexiones, afirmaciones y experiencias inmersivas. Este proyecto es una aplicación web progresiva (PWA) que te acompaña durante 365 días con contenido único cada día.
 
-![365 Días de Transformación](https://via.placeholder.com/1200x600/6366f1/ec4899?text=365+D%C3%ADas+de+Transformaci%C3%B3n)  
-*(Ilustración: Fondo con gradiente púrpura-rosa y iconos de crecimiento personal)*
+![365 Días de Transformación]
 
 ---
 
