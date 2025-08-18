@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>365 Días de Transformación Personal</title>
+    <meta name="description" content="Un año de crecimiento personal diario. Reflexiones, manifestaciones y motivación para transformar tu vida día a día.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #ffffff;
+            --bg-gray: #f9fafb;
+            --border-light: #e5e7eb;
+            --success-color: #10b981;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --text-dark: #f9fafb;
+            --text-light: #d1d5db;
+            --bg-light: #111827;
+            --bg-gray: #1f2937;
+            --border-light: #374151;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .controls {
+            background: var(--bg-gray);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .control-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            border: 2px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-light);
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .day-selector {
+            background: var(--bg-light);
+            border: 2px solid var(--border-light);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            min-width: 200px;
+        }
+
+        .main-content {
+            padding: 3rem 0;
+            min-height: 500px;
+        }
+
+        .day-card {
+            background: var(--bg-light);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .day-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .day-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-date {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .reflection-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reflection-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .manifestation-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .manifestation-item {
+            background: var(--bg-gray);
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid var(--accent-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .manifestation-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .audio-player {
+            background: var(--bg-gray);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .play-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--border-light);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .time-display {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .stats-section {
+            background: var(--bg-gray);
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .footer {
+            background: var(--bg-gray);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 3rem;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-light);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .day-card {
+                padding: 1.5rem;
+            }
+            
+            .day-number {
+                font-size: 2rem;
+            }
+            
+            .control-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>365 Días de Transformación</h1>
+            <p class="subtitle">Tu viaje diario hacia el crecimiento personal</p>
+        </div>
+    </header>
+
+    <div class="controls">
+        <div class="container">
+            <div class="control-group">
+                <select class="day-selector" id="daySelector">
+                    <!-- Se llena dinámicamente -->
+                </select>
+                <button class="btn btn-primary" onclick="goToRandomDay()">Día Aleatorio</button>
+                <button class="btn btn-primary" onclick="goToToday()">Hoy</button>
+                <button class="btn btn-secondary" onclick="markAsCompleted()">Marcar Completado</button>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Preparando tu experiencia diaria...</p>
+    </div>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="day-card" id="dayCard">
+                <!-- Contenido dinámico del día -->
+            </div>
+
+            <div class="stats-section">
+                <div class="container">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Tu Progreso</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="completedDays">0</div>
+                            <div class="stat-label">Días Completados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="currentStreak">0</div>
+                            <div class="stat-label">Racha Actual</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalReflections">0</div>
+                            <div class="stat-label">Reflexiones Leídas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="progressPercent">0%</div>
+                            <div class="stat-label">Progreso Anual</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 365 Días de Transformación. Creado con 💙 para tu crecimiento personal.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Base de datos de reflexiones y manifestaciones
+        const dailyContent = {
+            reflections: [
+                "Cada amanecer es una invitación a reinventarte. Hoy tienes la oportunidad de ser una versión mejorada de quien fuiste ayer. No necesitas cambios dramáticos; pequeños pasos conscientes pueden crear transformaciones extraordinarias.",
+                
+                "La gratitud no es solo reconocer lo bueno en tu vida, sino encontrar la luz incluso en los momentos difíciles. Cuando cambias tu perspectiva, cambias tu realidad.",
+                
+                "Tu mente es como un jardín. Los pensamientos que cultivas determinarán qué florece en tu vida. Siembra intenciones positivas y riega tus sueños con acciones consistentes.",
+                
+                "El fracaso no es el final del camino, es información valiosa. Cada error te enseña algo que el éxito no puede. Abraza tus imperfecciones como escalones hacia tu crecimiento.",
+                
+                "La autocompasión es el fundamento de la transformación. Trátate con la misma amabilidad que mostrarías a tu mejor amigo. El cambio florecerá desde el amor, no desde la crítica.",
+                
+                // ... (contenido se genera dinámicamente para completar 365 días)
+            ],
+            
+            manifestations: [
+                ["Soy capaz de crear la vida que deseo", "Cada día me acerco más a mis objetivos", "Confío en mi capacidad de superar cualquier desafío"],
+                ["La abundancia fluye hacia mí de manera natural", "Merezco amor, éxito y felicidad", "Soy un imán para las oportunidades positivas"],
+                ["Mi mente está llena de pensamientos constructivos", "Elijo la paz y la serenidad en cada momento", "Soy el arquitecto de mi destino"],
+                ["Cada obstáculo es una oportunidad de crecimiento", "Mi resiliencia me hace más fuerte cada día", "Aprendo y evoluciono constantemente"],
+                ["Me amo y me acepto completamente", "Soy digno de todo lo bueno que la vida ofrece", "Mi autoestima crece cada día"]
+            ]
+        };
+
+        // Estado de la aplicación
+        let currentDay = 1;
+        let isPlaying = false;
+        let progress = JSON.parse(localStorage.getItem('dailyProgress') || '{}');
+        let currentAudio = null;
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+            populateDaySelector();
+            goToToday();
+            updateStats();
+            generateFullContent();
+        });
+
+        function initializeApp() {
+            // Configurar tema inicial
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon();
+        }
+
+        function generateFullContent() {
+            // Generar reflexiones para todos los días del año
+            const baseReflections = dailyContent.reflections;
+            const baseManifestation = dailyContent.manifestations;
+            
+            for (let i = baseReflections.length; i < 365; i++) {
+                dailyContent.reflections.push(generateReflection(i + 1));
+                dailyContent.manifestations.push(generateManifestations(i + 1));
+            }
+        }
+
+        function generateReflection(day) {
+            const themes = {
+                personal: [
+                    "El crecimiento personal es un viaje, no un destino. Cada día que dedicas a conocerte mejor es una inversión en tu futuro más pleno y auténtico.",
+                    "Tu zona de confort es un lugar hermoso, pero nada crece ahí. Hoy, atrévete a dar un paso pequeño hacia algo que te inspire pero también te desafíe.",
+                    "La confianza no viene de nunca fallar, sino de saber que puedes recuperarte de cualquier caída. Tu fortaleza se construye en los momentos difíciles.",
+                ],
+                relaciones: [
+                    "Las relaciones más profundas nacen cuando tienes el valor de ser vulnerable. Compartir tu verdad auténtica es el regalo más valioso que puedes ofrecer.",
+                    "Escuchar no es solo oír las palabras, sino entender el corazón que las impulsa. Hoy, regala a alguien el poder de tu atención completa.",
+                    "El amor hacia otros comienza con el amor hacia ti mismo. No puedes dar lo que no posees, así que cultiva primero tu propia compasión.",
+                ],
+                propósito: [
+                    "Tu propósito no siempre llega como una revelación dramática. A menudo se descubre en los pequeños momentos donde sientes que contribuyes al mundo.",
+                    "La pasión sin acción es solo un sueño. La acción sin pasión es solo trabajo. La magia ocurre cuando las combinas con propósito e intención.",
+                    "No necesitas cambiar el mundo entero. Si puedes mejorar un día, una sonrisa, una vida a la vez, ya estás cumpliendo un propósito noble.",
+                ]
+            };
+            
+            const themeKeys = Object.keys(themes);
+            const randomTheme = themes[themeKeys[day % themeKeys.length]];
+            return randomTheme[day % randomTheme.length];
+        }
+
+        function generateManifestations(day) {
+            const manifestationSets = [
+                ["Cada día descubro nuevas fortalezas en mí", "Mi potencial es ilimitado", "Creo en mi capacidad de lograr grandes cosas"],
+                ["Atraigo relaciones positivas y nutritivas", "Soy una fuente de energía positiva para otros", "El amor y la comprensión fluyen en mi vida"],
+                ["Mis decisiones están alineadas con mis valores", "Encuentro mi propósito en cada acción que realizo", "Mi vida tiene significado y dirección"],
+                ["La creatividad fluye libremente a través de mí", "Soy innovador y encuentro soluciones únicas", "Mi imaginación no tiene límites"],
+                ["Mi cuerpo es fuerte, saludable y lleno de vitalidad", "Cuido mi bienestar físico y mental", "La energía positiva circula por todo mi ser"]
+            ];
+            
+            return manifestationSets[day % manifestationSets.length];
+        }
+
+        function populateDaySelector() {
+            const selector = document.getElementById('daySelector');
+            for (let i = 1; i <= 365; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `Día ${i}`;
+                selector.appendChild(option);
+            }
+            
+            selector.addEventListener('change', function() {
+                loadDay(parseInt(this.value));
+            });
+        }
+
+        function loadDay(day) {
+            currentDay = day;
+            document.getElementById('daySelector').value = day;
+            
+            showLoading();
+            
+            setTimeout(() => {
+                renderDayContent(day);
+                hideLoading();
+            }, 500);
+        }
+
+        function renderDayContent(day) {
+            const dayCard = document.getElementById('dayCard');
+            const reflection = dailyContent.reflections[(day - 1) % dailyContent.reflections.length];
+            const manifestations = dailyContent.manifestations[(day - 1) % dailyContent.manifestations.length];
+            
+            const date = new Date();
+            date.setMonth(0, 1); // 1 de enero
+            date.setDate(day);
+            
+            const isCompleted = progress[day] || false;
+            const completedClass = isCompleted ? 'completed' : '';
+            
+            dayCard.innerHTML = `
+                <div class="day-header">
+                    <div class="day-number">Día ${day}</div>
+                    <div class="day-date">${date.toLocaleDateString('es-ES', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    })}</div>
+                </div>
+                
+                <div class="reflection-section">
+                    <h3 class="section-title">
+                        🌟 Reflexión del Día
+                    </h3>
+                    <p class="reflection-text">${reflection}</p>
+                    
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" onclick="toggleAudio()">
+                                <span id="playIcon">▶️</span>
+                            </button>
+                            <div class="progress-bar" onclick="seekAudio(event)">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="time-display">
+                                <span id="currentTime">0:00</span> / <span id="totalTime">2:30</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">
+                            🎧 Escucha esta reflexión con voz sintetizada para una experiencia más inmersiva
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="reflection-section">
+                    <h3 class="section-title">
+                        ✨ Manifestaciones Diarias
+                    </h3>
+                    <ul class="manifestation-list">
+                        ${manifestations.map(manifestation => 
+                            `<li class="manifestation-item">${manifestation}</li>`
+                        ).join('')}
+                    </ul>
+                    <p style="font-style: italic; color: var(--text-light); margin-top: 1rem;">
+                        💡 Repite estas afirmaciones en voz alta para potenciar su efecto
+                    </p>
+                </div>
+            `;
+        }
+
+        function toggleAudio() {
+            const playIcon = document.getElementById('playIcon');
+            
+            if (!isPlaying) {
+                // Simular reproducción de audio
+                playIcon.textContent = '⏸️';
+                isPlaying = true;
+                simulateAudioProgress();
+                
+                // Crear audio sintético usando Web Speech API si está disponible
+                if ('speechSynthesis' in window) {
+                    const reflection = dailyContent.reflections[(currentDay - 1) % dailyContent.reflections.length];
+                    const utterance = new SpeechSynthesisUtterance(reflection);
+                    utterance.lang = 'es-ES';
+                    utterance.rate = 0.8;
+                    utterance.pitch = 1;
+                    
+                    utterance.onend = () => {
+                        playIcon.textContent = '▶️';
+                        isPlaying = false;
+                        document.getElementById('progressFill').style.width = '0%';
+                    };
+                    
+                    speechSynthesis.speak(utterance);
+                    currentAudio = utterance;
+                }
+            } else {
+                playIcon.textContent = '▶️';
+                isPlaying = false;
+                if (currentAudio && 'speechSynthesis' in window) {
+                    speechSynthesis.cancel();
+                }
+            }
+        }
+
+        function simulateAudioProgress() {
+            if (!isPlaying) return;
+            
+            let progress = 0;
+            const progressBar = document.getElementById('progressFill');
+            const currentTimeElement = document.getElementById('currentTime');
+            
+            const interval = setInterval(() => {
+                if (!isPlaying || progress >= 100) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                progress += 0.67; // Simular progreso de 2:30 minutos
+                progressBar.style.width = progress + '%';
+                
+                const currentSeconds = Math.floor((progress / 100) * 150); // 2:30 = 150 segundos
+                const minutes = Math.floor(currentSeconds / 60);
+                const seconds = currentSeconds % 60;
+                currentTimeElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 100);
+        }
+
+        function goToToday() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            loadDay(dayOfYear > 365 ? 365 : dayOfYear);
+        }
+
+        function goToRandomDay() {
+            const randomDay = Math.floor(Math.random() * 365) + 1;
+            loadDay(randomDay);
+        }
+
+        function markAsCompleted() {
+            progress[currentDay] = true;
+            localStorage.setItem('dailyProgress', JSON.stringify(progress));
+            updateStats();
+            
+            // Mostrar feedback visual
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '✅ Completado';
+            button.style.background = 'var(--success-color)';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 2000);
+        }
+
+        function updateStats() {
+            const completedCount = Object.keys(progress).length;
+            const currentStreak = calculateStreak();
+            const totalReflections = completedCount; // Asumiendo que cada día completado = reflexión leída
+            const progressPercent = Math.round((completedCount / 365) * 100);
+            
+            document.getElementById('completedDays').textContent = completedCount;
+            document.getElementById('currentStreak').textContent = currentStreak;
+            document.getElementById('totalReflections').textContent = totalReflections;
+            document.getElementById('progressPercent').textContent = progressPercent + '%';
+        }
+
+        function calculateStreak() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            let streak = 0;
+            
+            for (let i = dayOfYear; i >= 1; i--) {
+                if (progress[i]) {
+                    streak++;
+                } else {
+                    break;
+                }
+            }
+            
+            return streak;
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const themeButton = document.querySelector('.theme-toggle');
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            themeButton.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('dayCard').style.opacity = '0.5';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dayCard').style.opacity = '1';
+        }
+
+        function seekAudio(event) {
+            if (!isPlaying) return;
+            
+            const progressBar = event.currentTarget;
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (event.clientX - rect.left) / rect.width * 100;
+            
+            document.getElementById('progressFill').style.width = percent + '%';
+            
+            const currentSeconds = Math.floor((percent / 100) * 150);
+            const minutes = Math.floor(currentSeconds / 60);
+            const seconds = currentSeconds % 60;
+            document.getElementById('currentTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Notificaciones diarias (si el usuario lo permite)
+        function requestNotificationPermission() {
+            if ('Notification' in window && Notification.permission === 'default') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        scheduleDailyNotification();
+                    }
+                });
+            }
+        }
+
+        function scheduleDailyNotification() {
+            // Programar notificación diaria a las 8:00 AM
+            const now = new Date();
+            const scheduledTime = new Date();
+            scheduledTime.setHours(8, 0, 0, 0);
+            
+            if (scheduledTime <= now) {
+                scheduledTime.setDate(scheduledTime.getDate() + 1);
+            }
+            
+            const timeUntilNotification = scheduledTime.getTime() - now.getTime();
+            
+            setTimeout(() => {
+                if (Notification.permission === 'granted') {
+                    new Notification('🌟 Tu transformación diaria te espera', {
+                        body: 'Es hora de tu reflexión y manifestaciones del día. ¡Vamos a crecer juntos!',
+                        icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%236366f1"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">✨</text></svg>',
+                        tag: 'daily-reflection'
+                    });
+                }
+                // Programar para el siguiente día
+                setTimeout(scheduleDailyNotification, 24 * 60 * 60 * 1000);
+            }, timeUntilNotification);
+        }
+
+        // Funciones de exportación y compartir progreso
+        function exportProgress() {
+            const progressData = {
+                completedDays: Object.keys(progress).length,
+                totalDays: 365,
+                streak: calculateStreak(),
+                completedDaysArray: Object.keys(progress).map(Number).sort((a, b) => a - b),
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(progressData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `mi-progreso-365-dias-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        function shareProgress() {
+            const completedCount = Object.keys(progress).length;
+            const progressPercent = Math.round((completedCount / 365) * 100);
+            const streak = calculateStreak();
+            
+            const shareText = `🌟 Mi progreso en 365 Días de Transformación:\n\n✅ ${completedCount} días completados (${progressPercent}%)\n🔥 Racha actual: ${streak} días\n\n¡Cada día es una oportunidad de crecimiento! #365DiasDeTransformacion #CrecimientoPersonal`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: '365 Días de Transformación - Mi Progreso',
+                    text: shareText
+                });
+            } else {
+                // Fallback: copiar al portapapeles
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('¡Progreso copiado al portapapeles! Puedes pegarlo en tus redes sociales.');
+                });
+            }
+        }
+
+        // Función para generar reflexiones personalizadas basadas en el progreso
+        function getPersonalizedMessage() {
+            const completedCount = Object.keys(progress).length;
+            const streak = calculateStreak();
+            
+            if (completedCount === 0) {
+                return "¡Bienvenido a tu viaje de transformación! Cada gran cambio comienza con un primer paso consciente.";
+            } else if (completedCount < 7) {
+                return "¡Excelente inicio! Los primeros días son los más importantes. Estás construyendo un hábito que transformará tu vida.";
+            } else if (completedCount < 30) {
+                return `¡Vas genial! Has completado ${completedCount} días. Los cambios reales empiezan a manifestarse después de 21 días de práctica consistente.`;
+            } else if (completedCount < 100) {
+                return `¡Increíble! ${completedCount} días de crecimiento personal. Ya no eres la misma persona que empezó este viaje. ¿Puedes sentir la diferencia?`;
+            } else {
+                return `¡Eres una inspiración! ${completedCount} días de transformación consciente. Tu dedicación es prueba de que el cambio real es posible.`;
+            }
+        }
+
+        // Agregar mensaje personalizado al renderizar el día
+        function addPersonalizedMessage() {
+            const dayCard = document.getElementById('dayCard');
+            const personalMessage = getPersonalizedMessage();
+            
+            const messageElement = document.createElement('div');
+            messageElement.style.cssText = `
+                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+                border: 1px solid #0ea5e9;
+                border-radius: 1rem;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                text-align: center;
+                color: #0c4a6e;
+                font-weight: 500;
+            `;
+            messageElement.innerHTML = `
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
+                <p>${personalMessage}</p>
+            `;
+            
+            dayCard.insertBefore(messageElement, dayCard.firstChild.nextSibling);
+        }
+
+        // Mejorar la función renderDayContent
+        const originalRenderDayContent = renderDayContent;
+        renderDayContent = function(day) {
+            originalRenderDayContent(day);
+            addPersonalizedMessage();
+            
+            // Agregar botones de acción adicionales
+            const actionButtons = document.createElement('div');
+            actionButtons.style.cssText = `
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            `;
+            
+            actionButtons.innerHTML = `
+                <button class="btn btn-secondary" onclick="exportProgress()" title="Descargar mi progreso">
+                    📊 Exportar Progreso
+                </button>
+                <button class="btn btn-secondary" onclick="shareProgress()" title="Compartir mi progreso">
+                    📱 Compartir
+                </button>
+                <button class="btn btn-secondary" onclick="requestNotificationPermission()" title="Activar recordatorios diarios">
+                    🔔 Recordatorios
+                </button>
+            `;
+            
+            document.getElementById('dayCard').appendChild(actionButtons);
+        };
+
+        // Agregar atajos de teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    if (currentDay > 1) loadDay(currentDay - 1);
+                    break;
+                case 'ArrowRight':
+                    if (currentDay < 365) loadDay(currentDay + 1);
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    toggleAudio();
+                    break;
+                case 'Enter':
+                    markAsCompleted();
+                    break;
+                case 'r':
+                    goToRandomDay();
+                    break;
+                case 't':
+                    goToToday();
+                    break;
+                case 'd':
+                    toggleTheme();
+                    break;
+            }
+        });
+
+        // Mostrar atajos en la interfaz
+        function showKeyboardShortcuts() {
+            const shortcuts = document.createElement('div');
+            shortcuts.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--bg-light);
+                border: 1px solid var(--border-light);
+                border-radius: 0.75rem;
+                padding: 1rem;
+                box-shadow: var(--shadow-medium);
+                font-size: 0.875rem;
+                max-width: 250px;
+                z-index: 1000;
+            `;
+            
+            shortcuts.innerHTML = `
+                <div style="font-weight: 600; margin-bottom: 0.5rem; color: var(--primary-color);">⌨️ Atajos</div>
+                <div>← → Navegar días</div>
+                <div>Espacio: Play/Pausa</div>
+                <div>Enter: Marcar completado</div>
+                <div>R: Día aleatorio</div>
+                <div>T: Ir a hoy</div>
+                <div>D: Cambiar tema</div>
+                <button onclick="this.parentElement.remove()" style="margin-top: 0.5rem; background: none; border: none; color: var(--text-light); cursor: pointer;">❌</button>
+            `;
+            
+            document.body.appendChild(shortcuts);
+            
+            // Auto-ocultar después de 10 segundos
+            setTimeout(() => {
+                if (shortcuts.parentElement) {
+                    shortcuts.remove();
+                }
+            }, 10000);
+        }
+
+        // Mostrar atajos al cargar
+        setTimeout(showKeyboardShortcuts, 3000);
+
+        // Analytics básicos (sin cookies)
+        function trackEngagement() {
+            const sessionData = {
+                daysVisited: JSON.parse(sessionStorage.getItem('daysVisited') || '[]'),
+                audioPlayed: sessionStorage.getItem('audioPlayed') === 'true',
+                sessionStart: sessionStorage.getItem('sessionStart') || Date.now()
+            };
+            
+            if (!sessionData.daysVisited.includes(currentDay)) {
+                sessionData.daysVisited.push(currentDay);
+                sessionStorage.setItem('daysVisited', JSON.stringify(sessionData.daysVisited));
+            }
+        }
+
+        // Llamar tracking cuando se carga un día
+        const originalLoadDay = loadDay;
+        loadDay = function(day) {
+            originalLoadDay(day);
+            trackEngagement();
+        };
+
+        // Función de auto-guardado mejorada
+        function autoSave() {
+            const appState = {
+                progress: progress,
+                currentDay: currentDay,
+                theme: document.documentElement.getAttribute('data-theme'),
+                lastAccess: Date.now()
+            };
+            
+            localStorage.setItem('365-app-state', JSON.stringify(appState));
+        }
+
+        // Auto-guardar cada 30 segundos
+        setInterval(autoSave, 30000);
+
+        // Restaurar estado al inicializar
+        function restoreState() {
+            const savedState = JSON.parse(localStorage.getItem('365-app-state') || '{}');
+            
+            if (savedState.progress) {
+                progress = savedState.progress;
+            }
+            
+            if (savedState.currentDay && savedState.lastAccess) {
+                const daysSinceLastAccess = Math.floor((Date.now() - savedState.lastAccess) / (1000 * 60 * 60 * 24));
+                
+                // Si fue hace menos de 7 días, restaurar el día actual
+                if (daysSinceLastAccess < 7) {
+                    currentDay = savedState.currentDay;
+                }
+            }
+        }
+
+        // Mejorar inicialización
+        const originalInitializeApp = initializeApp;
+        initializeApp = function() {
+            originalInitializeApp();
+            restoreState();
+        };
+
+        // Mensaje de bienvenida para nuevos usuarios
+        function showWelcomeMessage() {
+            const isFirstVisit = !localStorage.getItem('365-first-visit');
+            
+            if (isFirstVisit) {
+                localStorage.setItem('365-first-visit', 'true');
+                
+                setTimeout(() => {
+                    const welcome = document.createElement('div');
+                    welcome.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: var(--bg-light);
+                        border: 2px solid var(--primary-color);
+                        border-radius: 1.5rem;
+                        padding: 2rem;
+                        max-width: 500px;
+                        text-align: center;
+                        box-shadow: var(--shadow-medium);
+                        z-index: 1001;
+                    `;
+                    
+                    welcome.innerHTML = `
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
+                        <h2 style="color: var(--primary-color); margin-bottom: 1rem;">¡Bienvenido a tu transformación!</h2>
+                        <p style="margin-bottom: 1.5rem; color: var(--text-light);">
+                            Estás a punto de comenzar un viaje extraordinario de 365 días. 
+                            Cada día descubrirás nuevas reflexiones y manifestaciones diseñadas para inspirarte y motivarte.
+                        </p>
+                        <p style="margin-bottom: 1.5rem; font-weight: 500;">
+                            💡 Consejo: Dedica al menos 5 minutos cada día a leer y reflexionar sobre el contenido. 
+                            La consistencia es la clave de la transformación.
+                        </p>
+                        <button class="btn btn-primary" onclick="this.parentElement.remove()" style="width: 100%;">
+                            ¡Comenzar mi transformación! 🚀
+                        </button>
+                    `;
+                    
+                    document.body.appendChild(welcome);
+                }, 1000);
+            }
+        }
+
+        // Mostrar bienvenida después de la inicialización
+        setTimeout(showWelcomeMessage, 2000);
+
+        // Guardar progreso antes de cerrar la página
+        window.addEventListener('beforeunload', autoSave);
+    </script>
+</body>
+</html>
